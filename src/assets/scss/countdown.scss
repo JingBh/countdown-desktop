@@ -1,0 +1,62 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/_mixins.scss";
+@import "~bootstrap/scss/_root.scss";
+@import "~bootstrap/scss/_reboot.scss";
+
+body {
+  background: none;
+  user-select: none;
+
+  div {
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+#app {
+  position: relative;
+  padding: 0.5rem calc(0.75rem + 16px) 0.5rem 0.5rem;
+}
+
+#drag {
+  opacity: 0;
+  position: absolute;
+  top: 0.75rem;
+  right: 0;
+  width: calc(16px + 0.5rem);
+  height: calc(16px + 0.5rem);
+  padding: 0.25rem;
+  border-radius: 0.15rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  color: white;
+  transition: 0.2s;
+  transition-property: opacity;
+  line-height: 1rem;
+  text-align: center;
+  cursor: move;
+
+  &.enabled {
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-app-region: drag;
+  }
+
+  svg {
+    vertical-align: unset;
+  }
+}
+
+#count {
+  font-size: 2rem;
+  font-weight: normal;
+
+  @media (prefers-color-scheme: dark) {
+    color: $light;
+  }
+}
+
+#days {
+  color: $primary;
+}
